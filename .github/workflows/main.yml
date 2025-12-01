@@ -1,0 +1,18 @@
+name: Backend deployment
+on:
+  - push
+jobs:
+  deploy: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with: 
+          node-version: '24'
+      - run: npm install
+      - name: AWS deployment
+        run: npx sls deploy --stage dev
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.FAST_COMANDA_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.FAST_COMANDA_SECRET_ACCESS_KEY }}
+          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}

@@ -1,0 +1,35 @@
+org: fastcomanda
+service: order-service
+
+provider:
+  name: aws
+  stackName: fast-comanda-order-stack-${opt:stage, 'dev'}
+  runtime: nodejs24.x
+  architecture: arm64
+  memorySize: 512
+  timeout: 10
+  region: sa-east-1
+  deploymentBucket:
+    name: fast-comanda-deployment-bucket-${opt:stage, 'dev'}
+  httpApi:
+    basePath: orders
+
+functions:
+  createOrders:
+    handler: src/handlers/create-orders.handler
+    name: create-orders
+    events:
+      - http:
+          method: post
+  # getOrders:
+  #   handler: handler.hello
+  #   name: get-orders
+  #   events:
+  #     - http:
+  #         method: get
+  # updateOrders:
+  #   handler: handler.hello
+  #   name: update-orders
+  #   events:
+  #     - http:
+  #         method: put
