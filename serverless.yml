@@ -11,8 +11,6 @@ provider:
   region: sa-east-1
   deploymentBucket:
     name: fast-comanda-deployment-bucket-${opt:stage, 'dev'}
-  httpApi:
-    basePath: orders
 
 functions:
   createOrders:
@@ -21,6 +19,7 @@ functions:
     events:
       - http:
           method: post
+          path: orders
   # getOrders:
   #   handler: handler.hello
   #   name: get-orders
