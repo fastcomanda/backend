@@ -1,0 +1,21 @@
+{
+    "orderId": "ORD-123",
+    "status": "aberto",
+    "items": [
+        {
+            "productId": "TAP-001",
+            "name": "Tapioca Calabresa",
+            "priceCents": 1890,
+            "qty": 1,
+            "extras": [
+                "queijo extra"
+            ]
+        }
+    ],
+    "subtotalCents": 1890,
+    "discountCents": 0,
+    "totalCents": 1890,
+    "createdAt": "2025-10-17T14:00:00Z",
+    "updatedAt": "2025-10-17T14:00:00Z",
+    "createdDate": "2025-10-17"
+}
